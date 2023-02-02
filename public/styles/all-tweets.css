@@ -1,0 +1,39 @@
+article.tweet header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.tweetheader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tweet {
+  border: 4px solid black;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 0.5em 0.5em;
+  text-align: left;
+  
+}
+
+article.tweet footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 4px solid black
+}
+
+.tweet:hover {
+  box-shadow: 10px 10px 10px orange
+}
+
+.tweet i:hover {
+  color: green
+}
+
+#icons {
+  color: purple
+}
