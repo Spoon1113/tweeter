@@ -23,7 +23,8 @@
 #tweet-text {
   border: transparent;
   border-bottom: solid black;
-  font-family: "Bungee", sans-serif;
+  font-weight: bold;
+  font-family: "Source Sans Pro", sans-serif;
   margin-top: 20px;
   outline: transparent
   
