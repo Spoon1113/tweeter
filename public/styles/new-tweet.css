@@ -16,13 +16,16 @@
   
 }
 #tweet-phrase {
-  margin-top: 20px
+  margin-top: 20px;
+  display: flex;
+  
 }
 #tweet-text {
-  border: none;
+  border: transparent;
   border-bottom: solid black;
-  font-family: "Source Sans Pro", sans-serif;
+  font-family: "Bungee", sans-serif;
   margin-top: 20px;
+  outline: transparent
   
 }
 
