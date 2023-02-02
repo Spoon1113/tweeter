@@ -8,7 +8,7 @@
   <!-- External CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
     type="text/css" />
-  <!-- Google Fonts: Bungee400 & Source Sans Pro 300I/600I -->
+  <!-- Google Fonts: Bungee & Source Sans Pro -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Source+Sans+Pro:ital,wght@1,300;1,600&display=swap"
@@ -26,7 +26,7 @@
   <!-- New Tweet CSS -->
   <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
   <!-- All Tweets CSS -->
-  <link rel="stlyesheet" href="/styles/all-tweets.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/all-tweets.css" type="text/css" />
   <!-- External JS -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.2/timeago.min.js"
@@ -46,7 +46,7 @@
       <i id="doublearrow" class="fa-sharp fa-solid fa-angles-down"></i>
     </div>
   </nav>
-  <header>
+  <header id="profile">
     <div>
       <img src="/images/profile-hex.png">
     </div>
@@ -59,8 +59,8 @@
   <!-- Page-specific (main) content here -->
   <main class="container">
     <section class="new-tweet">
-      <form action="tweets/" method="POST">
-        <label for="tweet-phrase" id="tweet-phrase">What are you humming about?</label>
+      <form action="/tweets/" method="POST"  id="tweet-box">
+        <label for="tweet-phrase" id="tweet-phrase"><strong>What are you humming about?</strong></label>
         <textarea name="text" id="tweet-text"></textarea>
         <div class="button-counter">
           <button class="button" type="submit">Tweet</button>
@@ -69,8 +69,7 @@
       </form>
     </section>
     <!-- Tweets content here -->
-    <section id="tweets-container">
-    </section>
+    <section id="tweets-container"></section>
   </main>
 </body>
 
