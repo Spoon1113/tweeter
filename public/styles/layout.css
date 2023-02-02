@@ -27,7 +27,8 @@ body {
  */
 .container {
   background-color: #f4f1ec;
-  width: 90vw;
+  width: 90%;
   margin-left: 5%;
   margin-right: 5%;
 } 
+
