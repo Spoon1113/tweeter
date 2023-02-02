@@ -6,30 +6,12 @@
 
 $(document).ready(function () {
 
-  const data = [
-    {
-      "user": {
-        "name": "Newton",
-        "avatars": "https://i.imgur.com/73hZDYK.png"
-        ,
-        "handle": "@SirIsaac"
-      },
-      "content": {
-        "text": "If I have seen further it is by standing on the shoulders of giants"
-      },
-      "created_at": 1461116232227
-    },
-    {
-      "user": {
-        "name": "Descartes",
-        "avatars": "https://i.imgur.com/nlhLi3I.png",
-        "handle": "@rd" },
-      "content": {
-        "text": "Je pense , donc je suis"
-      },
-      "created_at": 1461113959088
-    }
-  ]
+  const escape = function (str) {
+    let div = document.createElement("div");
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  };
+
   const renderTweets = function (tweets) {
     for (let tweet of tweets) {
       let $tweet = createTweetElement(tweet);
@@ -46,7 +28,7 @@ $(document).ready(function () {
     </div>
     <h2>${tweet.user.handle}</h2>
     </header> 
-     <p class="content"><strong>${tweet.content.text}</strong></p>
+     <p class="content"><strong>${escape(tweet.content.text)}</strong></p>
     <footer>
       <p>${timeago.format(tweet.created_at)}</p>
       <div id="icons">
@@ -59,26 +41,33 @@ $(document).ready(function () {
     return $tweet;
   };
 
-  
+
   $('#tweet-box').submit(function (event) {
     event.preventDefault();
     const string = $(this).serialize();
-    const input = $("textarea").val()
+    const input = $("textarea").val();
 
     if (input === "" || input === null) {
-      alert("You must enter something in here")
+      alert("You must enter something in here");
     } else if (input.length > 140) {
-      alert("You have exceeded the maximum amount of characters")
+      alert("You have exceeded the maximum amount of characters");
     } else {
-      $.post('/tweets/', string)
-    } 
+      $.ajax({
+        method: "POST",
+        url: "/tweets/",
+        data: string,
+      })
+        .then((res) => {
+          loadTweets(res)
+        })
+    }
   });
 
   const loadTweets = function () {
     $.ajax("/tweets/", { method: "GET" })
       .then(function (res) {
-        renderTweets(res)
+        renderTweets(res);
       });
   }
-  loadTweets(); 
+  loadTweets()
 });
