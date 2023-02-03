@@ -27,11 +27,11 @@ article.tweet footer {
 }
 
 .tweet:hover {
-  box-shadow: 10px 10px 10px orange
+  box-shadow: 8px 8px 8px #4056A1
 }
 
 .tweet i:hover {
-  color: green
+  color: red
 }
 
 #icons {
