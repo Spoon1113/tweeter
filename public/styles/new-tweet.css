@@ -37,3 +37,12 @@
 .counter {
   font-family: "Bungee", sans-serif;
 }
+
+#display-error {
+ color: red;
+ display: none;
+ text-align: left;
+ margin-top: 20px;
+ border: solid red;
+ font-weight: bold;
+}
