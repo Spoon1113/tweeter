@@ -13,6 +13,7 @@ $(document).ready(function () {
   };
 
   const renderTweets = function (tweets) {
+    // Emptys previous tweets so there are no duplicates
     $(`#tweets-container`).empty();
     for (let tweet of tweets) {
       let $tweet = createTweetElement(tweet);
@@ -49,10 +50,15 @@ $(document).ready(function () {
     const input = $("textarea").val();
 
     if (input === "" || input === null) {
-      alert("You must enter something in here");
+      $("#display-error").html("<span>&#9888;</span> You can't leave this field blank! <span>&#9888;</span>");
+      $("#display-error").slideDown();
+      // alert("You must enter something in here");
     } else if (input.length > 140) {
-      alert("You have exceeded the maximum amount of characters");
+      $("#display-error").html("You have exceeded the maximum amount of characters");
+      $("#display-error").slideDown();
+      // alert("You have exceeded the maximum amount of characters");
     } else {
+      $("#display-error").slideUp()
       $.ajax({
         method: "POST",
         url: "/tweets/",
