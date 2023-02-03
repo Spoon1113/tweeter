@@ -13,9 +13,10 @@ $(document).ready(function () {
   };
 
   const renderTweets = function (tweets) {
+    $(`#tweets-container`).empty();
     for (let tweet of tweets) {
       let $tweet = createTweetElement(tweet);
-      $('#tweets-container').append($tweet);
+      $('#tweets-container').prepend($tweet);
     }
   };
   const createTweetElement = function (tweet) {
@@ -57,9 +58,9 @@ $(document).ready(function () {
         url: "/tweets/",
         data: string,
       })
-        .then((res) => {
-          loadTweets(res)
-        })
+        .then(function (res) {
+          loadTweets()
+        });
     }
   });
 
