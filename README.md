@@ -12,7 +12,16 @@ This repository is the starter code for the project: Students will fork and clon
 3. Start the web server using the `npm run local` command. The app will be served at <http://localhost:8080/>.
 4. Go to <http://localhost:8080/> in your browser.
 
+## Screenshots
+![](https://github.com/Spoon1113/tweeter/blob/master/docs/tweet-loadpage.png?raw=true)
+![](https://github.com/Spoon1113/tweeter/blob/master/docs/new-tweet.png?raw=true)
+![](https://github.com/Spoon1113/tweeter/blob/master/docs/tweet-input-blank-error.png?raw=true)
+![](https://github.com/Spoon1113/tweeter/blob/master/docs/tweet-input-error.png?raw=true)
 ## Dependencies
 
 - Express
 - Node 5.10.x or above
+- Nodemon
+- Body-parser 1.15.2 or above
+- Chance 1.0.2 or above
+- Md5 2.1.0 or above
