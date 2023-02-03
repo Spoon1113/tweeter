@@ -52,11 +52,9 @@ $(document).ready(function () {
     if (input === "" || input === null) {
       $("#display-error").html("<span>&#9888;</span> You can't leave this field blank! <span>&#9888;</span>");
       $("#display-error").slideDown();
-      // alert("You must enter something in here");
     } else if (input.length > 140) {
       $("#display-error").html("You have exceeded the maximum amount of characters");
       $("#display-error").slideDown();
-      // alert("You have exceeded the maximum amount of characters");
     } else {
       $("#display-error").slideUp()
       $.ajax({
