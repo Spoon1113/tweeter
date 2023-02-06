@@ -5,13 +5,13 @@
  */
 
 $(document).ready(function () {
-
+  /** Escape function to prvent XSS */
   const escape = function (str) {
     let div = document.createElement("div");
     div.appendChild(document.createTextNode(str));
     return div.innerHTML;
   };
-
+  /** Loops through all tweets in database, then adds to the top of new tweets list */
   const renderTweets = function (tweets) {
     // Emptys previous tweets so there are no duplicates
     $(`#tweets-container`).empty();
@@ -20,6 +20,7 @@ $(document).ready(function () {
       $('#tweets-container').prepend($tweet);
     }
   };
+  /** Formats data into HTML and passed as object*/
   const createTweetElement = function (tweet) {
     let $tweet = $(`
   <article class="tweet">
@@ -43,16 +44,16 @@ $(document).ready(function () {
     return $tweet;
   };
 
-
+  // POST request after successful submit
   $('#tweet-box').submit(function (event) {
     event.preventDefault();
-    const string = $(this).serialize();
-    const input = $("textarea").val();
+    const $string = $(this).serialize()
+    const $input = $("textarea").val();
 
-    if (input === "" || input === null) {
+    if ($input === "" || $input === null) {
       $("#display-error").html("<span>&#9888;</span> You can't leave this field blank! <span>&#9888;</span>");
       $("#display-error").slideDown();
-    } else if (input.length > 140) {
+    } else if ($input.length > 140) {
       $("#display-error").html("You have exceeded the maximum amount of characters");
       $("#display-error").slideDown();
     } else {
@@ -60,19 +61,22 @@ $(document).ready(function () {
       $.ajax({
         method: "POST",
         url: "/tweets/",
-        data: string,
+        data: $string,
       })
         .then(function (res) {
-          loadTweets()
+          loadTweets();
         });
     }
+    // Resets character count and text area after submission
+    $("#tweet-text").val("");
+    $(".counter").html(140);
   });
-
+  /** Loads all Tweets */
   const loadTweets = function () {
     $.ajax("/tweets/", { method: "GET" })
       .then(function (res) {
         renderTweets(res);
       });
   }
-  loadTweets()
+  loadTweets();
 });
